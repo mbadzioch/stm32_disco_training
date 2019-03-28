@@ -9,13 +9,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "stm32f4xx_conf.h"
-#include "main_set.h"
 #include "delay.h"
 #include "timer.h"
 #include "tm_stm32f4_usb_vcp.h"
 #include "kom.h"
-#include "my_strings.h"
-#include "recorder.h"
 
 
 //----------------------------------------------------------------------------------------------------------------------
@@ -144,7 +141,7 @@ void process_command () {
 	};break;
 
 	case 2: { // command CNT?
-		my_itoa(settings.cnt,t_s);
+//		my_itoa(settings.cnt,t_s);
 		USART1_send_string(t_s);
 		USART1_send_string ("\r\n");
 	};break;
@@ -162,7 +159,7 @@ void process_command () {
 	};break;
 
 	case 5: { // command SET_HV
-		my_itoa(settings.hv,t_s);
+//		my_itoa(settings.hv,t_s);
 		USART1_send_string(t_s);
 		USART1_send_string ("\r\n");
 	};break;
@@ -170,12 +167,12 @@ void process_command () {
 	case 6: { // command SET_HV?
 		my_strcut ((char*)command_buf , ' ' , 1 , t_s , 64);
 		t_i = my_atoi (t_s);
-		settings.hv=t_i;
+//		settings.hv=t_i;
 		USART1_send_string ("OK\r\n");
 	};break;
 
 	case 7: { // command SET_REF
-		my_itoa(settings.ref,t_s);
+//		my_itoa(settings.ref,t_s);
 		USART1_send_string(t_s);
 		USART1_send_string ("\r\n");
 	};break;
@@ -183,12 +180,12 @@ void process_command () {
 	case 8: { // command SET_REF?
 		my_strcut ((char*)command_buf , ' ' , 1 , t_s , 64);
 		t_i = my_atoi (t_s);
-		settings.ref=t_i;
+//		settings.ref=t_i;
 		USART1_send_string ("OK\r\n");
 	};break;
 
 	case 9: { // command SHUTTER
-		my_itoa(settings.shutter,t_s);
+//		my_itoa(settings.shutter,t_s);
 		USART1_send_string(t_s);
 		USART1_send_string ("\r\n");
 	};break;
@@ -197,12 +194,12 @@ void process_command () {
 	case 10: { // command SHUTTER?
 		my_strcut ((char*)command_buf , ' ' , 1 , t_s , 64);
 		t_i = my_atoi (t_s);
-		settings.shutter=t_i;
+//		settings.shutter=t_i;
 		USART1_send_string ("OK\r\n");
 	};break;
 
 	case 11: { // command PHOTO
-		my_itoa(settings.photo,t_s);
+//		my_itoa(settings.photo,t_s);
 		USART1_send_string(t_s);
 		USART1_send_string ("\r\n");
 	};break;
@@ -210,12 +207,12 @@ void process_command () {
 	case 12: { // command PHOTO?
 		my_strcut ((char*)command_buf , ' ' , 1 , t_s , 64);
 		t_i = my_atoi (t_s);
-		settings.photo=t_i;
+//		settings.photo=t_i;
 		USART1_send_string ("OK\r\n");
 	};break;
 
 	case 13: { // command SOUND
-		my_itoa(settings.sound,t_s);
+//		my_itoa(settings.sound,t_s);
 		USART1_send_string(t_s);
 		USART1_send_string ("\r\n");
 	};break;
@@ -223,12 +220,12 @@ void process_command () {
 	case 14: { // command SOUND?
 		my_strcut ((char*)command_buf , ' ' , 1 , t_s , 64);
 		t_i = my_atoi (t_s);
-		settings.sound=t_i;
+//		settings.sound=t_i;
 		USART1_send_string ("OK\r\n");
 	};break;
 
 	case 15: { // command START
-		settings.state=1;
+//		settings.state=1;
 		for(uint32_t i=0;i<1;i++){
 			VCP_DataTx(testbuf,1000);
 		}
@@ -236,12 +233,12 @@ void process_command () {
 	};break;
 
 	case 16: { // command STOP
-		settings.state=0;
+//		settings.state=0;
 		USART1_send_string ("OK\r\n");
 	};break;
 
 	case 17: { // command STATE?
-		my_itoa(settings.state,t_s);
+//		my_itoa(settings.state,t_s);
 		USART1_send_string(t_s);
 		USART1_send_string ("\r\n");
 	};break;
@@ -257,7 +254,7 @@ void process_command () {
 	};break;
 
 	case 20: { // command WINDOW
-		my_itoa(settings.window,t_s);
+//		my_itoa(settings.window,t_s);
 		USART1_send_string(t_s);
 		USART1_send_string ("\r\n");
 	};break;
@@ -265,7 +262,7 @@ void process_command () {
 	case 21: { // command WINDOW?
 		my_strcut ((char*)command_buf , ' ' , 1 , t_s , 64);
 		t_i = my_atoi (t_s);
-		settings.window=t_i;
+//		settings.window=t_i;
 		USART1_send_string ("OK\r\n");
 	};break;
 	case -1:USART1_send_string ("Unknown command\r\n");break;

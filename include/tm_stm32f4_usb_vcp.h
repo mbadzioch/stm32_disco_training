@@ -129,7 +129,7 @@ Data -		PB14
 #include "stm32f4xx_gpio.h"
 #include "stm32f4xx_exti.h"
 #include "misc.h"
-#include "defines.h"
+//#include "defines.h"
 /* Parts of USB device */
 #include "usbd_cdc_core.h"
 #include "usb_conf.h"
